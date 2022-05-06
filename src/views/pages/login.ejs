@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+    <%- include('../partials/nav') %>
+
+    
+    <section class="forms">
+      
+      <%- include('../partials/messages') %>
+
+      <div class="formularios">
+        <form action="/login/register" method="POST" class="register">
+          <h1>Cadastre-se</h1>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    
+          <label for="email">Email</label>
+          <input type="email" name="email" id=""  placeholder="Email"/>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="" placeholder="Senha"/>
+          <button>Cadastrar</button>
+        </form>
+        
+        <form action="/login/login" method="POST" class="login">
+          <h1>Faça login abaixo</h1>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    
+          <label for="email">Email</label>
+          <input type="email" name="email" id="" placeholder="Email" />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="" placeholder="Senha"/>
+          <button>Entrar</button>
+        </form>  
+      </div>
+    </section>
+<%- include('../partials/footer') %>

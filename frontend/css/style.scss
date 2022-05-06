@@ -117,3 +117,25 @@ div.success-messages {
     background-color: rgb(225, 255, 229);
     border: 1px solid green;
 }
+
+section.logged {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+section.notebook {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

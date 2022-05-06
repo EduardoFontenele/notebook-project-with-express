@@ -1,5 +1,10 @@
 <nav>
-    <a href="">Notebook</a>
-    <a href="">Register</a>
-    <a href="">Login</a>
+    <a href="/">Notebook</a>
+    <a href="">Registrar contato</a>
+
+    <% if(!user) { %>
+        <a href="/login">Login</a>
+         <% } else { %>
+            <a href="/logout">Logout</a> 
+            <% } %> 
 </nav>
