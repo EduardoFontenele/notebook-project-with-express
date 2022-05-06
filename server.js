@@ -4,7 +4,7 @@ const routes = require('./routes')
 const mongoose = require('mongoose')
 const path = require('path')
 require('dotenv').config()
-const { checkCsrf, csrfMiddleware } = require('./src/middlewares/globals')
+const { checkCsrf, csrfMiddleware, middlewareGlobal } = require('./src/middlewares/globals')
 
 mongoose.connect(process.env.CONNECTION_STRING)
     .then(() => {
@@ -14,7 +14,7 @@ mongoose.connect(process.env.CONNECTION_STRING)
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
-app.set('views', path.resolve(__dirname, 'src', 'views'))
+app.set('views', path.resolve(__dirname, 'src', 'views', 'pages'))
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 app.on('start', () => {
@@ -34,11 +34,14 @@ const session = MongoStore({
 })
 
 const csrf = require('csurf')
+const flash = require('connect-flash')
 
 app.use(session)
 
 app.use(csrf())
 
+app.use(flash())
 app.use(checkCsrf)
 app.use(csrfMiddleware)
+app.use(middlewareGlobal)
 app.use(routes)
