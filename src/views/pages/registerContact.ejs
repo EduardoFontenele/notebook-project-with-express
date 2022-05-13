@@ -1,0 +1,30 @@
+<%- include('../partials/head') %> <%- include('../partials/nav') %>
+
+<section class="forms">
+       <%- include('../partials/messages') %>
+
+  <form action="/contato" method="post" class="formularios">
+    <h1>Cadastre um contato na sua agenda</h1>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+    <label>Nome</label>
+    <input type="text" 
+           name="nome"
+           placeholder="Nome" />
+    <label>Email</label>
+    <input type="email" 
+           name="email"
+           placeholder="Email" />
+    <label>Número</label>
+    <input type="text" 
+           name="number"
+           placeholder="Número" />
+    <label>Cidade</label>
+    <input type="text" 
+           name="cidade"
+           placeholder="Cidade" />
+    <button>Cadastrar</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,6 +1,9 @@
 <nav>
     <a href="/">Notebook</a>
-    <a href="">Registrar contato</a>
+
+    <% if(user) { %>
+        <a href="/contato">Registrar contato</a>
+         <% } %> 
 
     <% if(!user) { %>
         <a href="/login">Login</a>

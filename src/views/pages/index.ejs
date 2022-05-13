@@ -2,7 +2,22 @@
     <%- include('../partials/nav') %>
 
     <section class="notebook">
-        <h1><%= user.email %></h1>
+        <h1><%= user.email %>, abaixo estão seus contatos</h1>
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Número</th>
+                <th>Cidade</th>
+            </tr>
+            <tr>
+                <td>Eduardo Fontenele</td>
+                <td>user@gmail.com</td>
+                <td>99999-9999</td>
+                <td>Brasilia-DF</td>
+            </tr>
+        </table>
 
     </section>
     
