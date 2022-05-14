@@ -3,7 +3,7 @@
 <section class="forms">
        <%- include('../partials/messages') %>
 
-  <form action="/contato" method="post" class="formularios">
+  <form action="/<%= contato._id %>" method="post" class="formularios">
     <h1>Cadastre um contato na sua agenda</h1>
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
 
