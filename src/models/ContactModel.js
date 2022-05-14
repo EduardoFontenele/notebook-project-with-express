@@ -6,7 +6,7 @@ const ContatoSchema = new mongoose.Schema({
     email: { required: false, type: String, default: '' },
     numero: { required: false, type: String, default: '' },
     cidade: { required: false, type: String, default: '' },
-    criadoEm: {type: Date, default: Date.now}
+    criadoEm: { type: Date, default: Date.now }
 })
 
 const ContatoModel = mongoose.model('contatos', ContatoSchema)
@@ -17,14 +17,21 @@ class Contato {
         this.errors = [];
         this.contato = null;
     }
+    
+    buscaPorId = async function (id) {
+        if(typeof id !== 'string') return res.render('error')
+        const user = await ContatoModel.findById(id)
+        return user
+    }
 
     async register() {
         this.validate()
-        
-        if(this.errors.length > 0) return
+
+        if (this.errors.length > 0) return
 
         this.contato = await ContatoModel.create(this.body)
     }
+
 
     validate() {
         this.cleanUp()
@@ -33,11 +40,11 @@ class Contato {
             this.errors.push('E-mail inválido')
         }
 
-        if(!this.body.nome) {
+        if (!this.body.nome) {
             this.errors.push('É necessário enviar o nome do contato')
         }
 
-        if(!this.body.email && !this.body.numero) {
+        if (!this.body.email && !this.body.numero) {
             this.errors.push('Pelo menos um meio de contato é necessário (e-mail ou telefone)')
         }
     }

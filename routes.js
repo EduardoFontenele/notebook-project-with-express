@@ -27,4 +27,6 @@ route
     .get(contatoController.index)
     .post(contatoController.register)
 
+route.get('/contato/:id', contatoController.edit)
+
 module.exports = route;
