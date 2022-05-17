@@ -31,4 +31,7 @@ route
     .get('/contato/:id', contatoController.edit)
     .post('/:id', contatoController.editPost)
 
+route
+    .get('/contato/delete/:id', contatoController.delete)
+
 module.exports = route;

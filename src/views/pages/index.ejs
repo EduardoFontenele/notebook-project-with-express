@@ -5,18 +5,16 @@
         <h1><%= user.email %>, abaixo estão seus contatos</h1>
 
         <table>
+           <% contatos.forEach(contato => {%>
             <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Número</th>
-                <th>Cidade</th>
+                <td><%= contato.nome %></td>
+                <td><%= contato.email %></td>
+                <td><%= contato.numero %></td>
+                <td><%= contato.cidade %></td>
+                <td><a class="edit" href="/contato/<%= contato._id %>">Editar</a></td>
+                <td><a class="delete" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
             </tr>
-            <tr>
-                <td>Eduardo Fontenele</td>
-                <td>user@gmail.com</td>
-                <td>99999-9999</td>
-                <td>Brasilia-DF</td>
-            </tr>
+           <%}) %>
         </table>
 
     </section>

@@ -140,23 +140,33 @@ section.notebook {
     justify-content: center;
 
     table {
-        border: 1px solid gray;
+        border-bottom: 1px solid gray;
         border-collapse: collapse;
         width: 70%;
         margin: 60px 0 0 0;
 
         th {
-            border: 1px solid gray;
+            border-top: 1px solid gray;
             border-collapse: collapse;
             height: 30px;
             background-color: rgb(202, 202, 202);
         }
 
         td {
-            border: 1px solid gray;
+            border-top: 1px solid gray;
             border-collapse: collapse;
             text-align: center;
-            height: 30px;
+            height: 50px;
+
+            a.delete {
+                text-decoration: none;
+                color: red;
+            }
+
+            a.edit {
+                text-decoration: none;
+                color: blue;
+            }
         }
     }
 }

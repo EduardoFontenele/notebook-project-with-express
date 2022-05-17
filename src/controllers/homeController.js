@@ -1,6 +1,10 @@
-exports.index = (req, res, next) => {
+const Contato = require('../models/ContactModel')
+
+exports.index = async (req, res, next) => {
     if(!req.session.user) {
         return res.redirect('/login')
     }
-    res.render('index')
+    const contato = new Contato()
+    const contatos = await contato.buscaContatos()
+    res.render('index', { contatos })
 }

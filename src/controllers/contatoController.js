@@ -59,3 +59,17 @@ exports.editPost = async (req, res, next) => {
         return res.render('error')
     }
 }
+
+exports.delete = async (req, res, next) => {
+    try {
+        const user = new Contato()
+        if (!req.params.id) return res.render('error')
+
+        const contato = await user.delete(req.params.id)
+        if (!contato) return res.render('error')
+        req.session.save(() => res.redirect('back'))
+    } catch (e) {
+        console.log(e)
+        return res.render('error')
+    }
+}
